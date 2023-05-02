@@ -1,17 +1,14 @@
-# fly.toml file generated for shoppingmall on 2023-04-30T19:14:31+09:00
+# fly.toml file generated for shoppingmallserver on 2023-05-02T16:25:41+09:00
 
-app = "shoppingmall"
+app = "shoppingmallserver"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
 
-[build]
-  builder = "heroku/buildpacks:20"
-
 [env]
-  PORT = "8080"
-  MONGODB_USERNAME = "sugarsyrup"
   MONGODB_PASSWORD = "FgXjU256vs6pm2e6"
+  MONGODB_USERNAME = "sugarsyrup"
+  PORT = "8080"
 
 [experimental]
   auto_rollback = true

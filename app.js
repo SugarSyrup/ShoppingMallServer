@@ -9,7 +9,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 mongoose
-    .connect(`mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@sampleloginserver.vccnx70.mongodb.net/?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
+    .connect(`mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@sampleloginserver.vccnx70.mongodb.net/?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true}, {useFindAndModify: false})
     .then(() => console.log('Successfully connected to mongodb'))
     .catch(e => console.error(e));
 
