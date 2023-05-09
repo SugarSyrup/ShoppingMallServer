@@ -1,14 +1,17 @@
-# fly.toml file generated for shoppingmallserver on 2023-05-02T16:25:41+09:00
+# fly.toml app configuration file generated for quiet-bush-863 on 2023-05-09T12:18:14+09:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
-app = "shoppingmallserver"
+app = "quiet-bush-863"
 kill_signal = "SIGINT"
 kill_timeout = 5
+primary_region = "nrt"
 processes = []
 
+[build]
+
 [env]
-  MONGODB_PASSWORD = "FgXjU256vs6pm2e6"
-  MONGODB_USERNAME = "sugarsyrup"
-  PORT = "8080"
 
 [experimental]
   auto_rollback = true

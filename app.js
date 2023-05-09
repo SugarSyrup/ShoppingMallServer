@@ -2,10 +2,17 @@ require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const app = express();
+
+var corsOptions = {
+  origin: '*',
+  credential: true,
+}
 
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
+app.use(cors(corsOptions));
 app.use(express.json());
 
 mongoose
