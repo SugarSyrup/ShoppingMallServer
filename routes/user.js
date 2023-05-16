@@ -16,10 +16,10 @@ router.get('/userid/:userid', (req, res) => {
     const {userid} = req.params
     User.findOneByUserid(userid)
       .then((user) => {
-        if (!user) return res.status(404).send({ err: 'User not found' });
-        res.status(200).send(`findOne successfully: ${user}`);
+        if (!user) return res.status(404).json({ err: 'User not found' });
+        res.status(200).json(`findOne successfully: ${user}`);
       })
-      .catch(err => res.status(500).send(err));
+      .catch(err => res.status(500).json(err));
 });
 
 //POST : 로그인
@@ -29,11 +29,11 @@ router.post('/login', async (req, res) => {
     if(exists) {
         const _user = await User.findOne({id, password});
         if(_user) {
-            return res.status(200).send(_user.name);    
+            res.status(200).json({"name": user.name}); 
         }
-        return res.status(400).send({ err: 'password is not matched'});
+        return res.status(400).json({ err: 'password is not matched'});
     } else {
-        return res.status(400).send({ err: 'id is not exists'});
+        return res.status(400).json({ err: 'id is not exists'});
     }
 });
 
@@ -42,11 +42,11 @@ router.post('/signup', async (req, res) => {
     const {id, password, name} = req.body;
     const exists = await User.exists({id});
     if(exists) {
-        return res.status(400).send({ err: 'id is already exists'});
+        return res.status(400).json({ err: 'id is already exists'});
     } else {
         User.create({id, password, name})
-            .then(user => res.status(200).send(user.name))
-            .catch(err => res.status(500).send(err));
+            .then(user => res.status(200).json({"name": user.name}))
+            .catch(err => res.status(500).json(err));
     }
 });
   
