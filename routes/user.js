@@ -29,7 +29,7 @@ router.post('/login', async (req, res) => {
     if(exists) {
         const _user = await User.findOne({id, password});
         if(_user) {
-            res.status(200).json({"name": user.name}); 
+            res.status(200).json({"name": _user.name}); 
         }
         return res.status(400).json({ err: 'password is not matched'});
     } else {

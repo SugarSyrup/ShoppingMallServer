@@ -21,6 +21,9 @@ mongoose
     .catch(e => console.error(e));
 
 app.use('/', require('./routes/user'));
+app.use('/auth', require('./routes/auth'));
+
+//https://velog.io/@ssumniee/node.js-%EC%84%9C%EB%B2%84%EC%97%90-SMS-%EC%9D%B8%EC%A6%9D-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0
 
 const PORT = process.env.PORT || 8080;
 
