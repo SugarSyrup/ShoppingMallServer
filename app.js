@@ -28,5 +28,5 @@ app.use('/auth', require('./routes/auth'));
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port 3000`)
+  console.log(`Example app listening on port 8080`)
 })
