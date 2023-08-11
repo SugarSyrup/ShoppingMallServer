@@ -12,11 +12,7 @@ router.post('/phone', async (req, res) => {
     console.log('post is work')
     try {
         const result = await send_message(phone);
-        if(result.ok) {
-            res.status(200).json({"message" : "send ok!", "code":result.code})
-        } else {
-            res.send("send Error");
-        }
+        res.status(200).json({"message" : "send ok!", "code":result.code})
     }catch(err){
         console.log(err)
     }

@@ -70,6 +70,11 @@ function send_message(phone) {
                 ok: false
             }
         })
+
+    return {
+        ok: true,
+        code: code
+    };
 }
 
 module.exports = send_message;
