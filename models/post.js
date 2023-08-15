@@ -17,26 +17,21 @@ const postSchema = new mongoose.Schema({
     timestamps: true
 });
 
-//Create
+//생성
 postSchema.statics.create = function (payload) {
     const post = new this(payload);
 
     return post.save();
 }
 
-//Read
-postSchema.statics.findOne = function (email, password) {
-    return this.findOne({"email" : email, "password" : password});
-}
-
-//Update
+//수정
 postSchema.statics.updateById = function (id, payload) {
-    return this.findOneAndUpdate({"id" : id}, payload, {new: true});    
+    return this.findOneAndUpdate({"_id" : id}, payload, {new: true});    
 }
 
 //Delete
 postSchema.statics.deleteById = function (id) {
-    return this.deleteOne({ "id" : id });
+    return this.deleteOne({ "_id" : id });
 }
 
 module.exports = mongoose.model('post', postSchema);
